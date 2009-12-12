@@ -23,13 +23,20 @@
         }
         %>
         <%
-            int authed = gp.authenticate((String)request.getParameter("username"),
-                (String)request.getParameter("password"));
+            String username = (String)request.getParameter("username");
+            String password = (String)request.getParameter("password");
+            int authed = gp.authenticate(username,password);
             switch(authed){
                 case 0: session.setAttribute("username", (String)request.getParameter("username"));
+                        if(gp.isGp(username,password)){
         %>
-            <jsp:forward page="main.jsp"/>
+                            <jsp:forward page="gp/main.jsp"/>
         <%
+                        } else {
+        %>
+                            <jsp:forward page="patient/main.jsp"/>
+        <%
+                        }
                         break;
                 case 1:
         %>
