@@ -38,7 +38,7 @@
                         break;
                 case 2:
         %>
-            <jsp:forward page="index.jsp?error=invalid%20user"/>
+            <jsp:forward page="index.jsp?error=invalid%20password"/>
         <%
                         break;
             }
