@@ -17,8 +17,8 @@
         <h1>Main page</h1>
          <a href="patient/Prescriptionlist.jsp">Prescriptions</a>
          <br/><a href="patient/Task.jsp">next task</a>
-         <br/><a href="patient/Maesurements.jsp">add measurement</a>
+         <br/><a href="patient/Measurements.jsp">add measurement</a>
          <p/>
-         <a href="logout.jsp">log out</a>
+         <a href="/logout.jsp">log out</a>
     </body>
 </html>
