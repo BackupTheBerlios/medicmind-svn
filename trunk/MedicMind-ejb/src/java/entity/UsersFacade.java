@@ -48,23 +48,23 @@ public class UsersFacade implements UsersFacadeLocal {
         }
     }
 
-    public boolean isGp(String username, String password) {
-        //Locates the gp (if any) with this unique username.
-        Users gp = findByUsername(username);
+    public boolean isUser(String username, String password) {
+        //Locates the user (if any) with this unique username.
+        Users user = findByUsername(username);
         boolean valid = false;
 
         //If a gp with such an username exists and the password corresponds,
         //than the password is valid.
-        if (gp != null) {
-            if (password.equals(gp.getPassword()) && gp.getRolename().equals("GP")) {
+        if (user != null) {
+            if (password.equals(user.getPassword())) {
                 valid = true;
             }
         }
         return valid;
     }
 
-    public boolean exists(String ssn) {
-        return findBySsn(ssn) != null;
+    public boolean exists(String username) {
+        return findByUsername(username) != null;
     }
 
     /**
@@ -109,7 +109,7 @@ public class UsersFacade implements UsersFacadeLocal {
 
     public Users findBySsn(String ssn) {
         try {
-            Users patient = (Users) em.createNamedQuery("User.findBySsn").setParameter("ssn", ssn).getSingleResult();
+            Users patient = (Users) em.createNamedQuery("Users.findBySsn").setParameter("ssn", ssn).getSingleResult();
             return patient;
         } catch (Exception e) {
             return null;
@@ -118,7 +118,7 @@ public class UsersFacade implements UsersFacadeLocal {
 
     public Users findByUsername(String username) {
         try {
-            Users gp = (Users) em.createNamedQuery("User.findByUsername").setParameter("username", username).getSingleResult();
+            Users gp = (Users) em.createNamedQuery("Users.findByUsername").setParameter("username", username).getSingleResult();
             return gp;
         } catch (Exception e) {
             return null;

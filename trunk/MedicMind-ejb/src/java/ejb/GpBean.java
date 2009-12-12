@@ -17,7 +17,7 @@ import javax.ejb.Stateless;
 public class GpBean implements GpRemote {
 
     @EJB
-    private UsersFacadeLocal gpFacade;
+    private UsersFacadeLocal usersFacade;
 
     public int create(String ssn, String username, String password,
             String firstname, String lastname) {
@@ -26,16 +26,18 @@ public class GpBean implements GpRemote {
         else if (password == null || password.equals(""))
             return 2;
         else {
-            return gpFacade.addGp(ssn, username, password,
+            return usersFacade.addGp(ssn, username, password,
                 firstname, lastname);
         }
     }
 
     public int authenticate(String username, String password) {
-        if (gpFacade.exists(username)) {
-            return (gpFacade.isGp(username, password)) ? 0 : 2;
+   
+        if (usersFacade.exists(username)) {
+            return (usersFacade.isUser(username, password)) ? 0 : 2;
         } else
             return 1;
+    
     }
     
 }

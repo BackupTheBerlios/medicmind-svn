@@ -74,7 +74,8 @@ public class Users implements Serializable {
     private List<Measurement> measurements;
     @OneToMany(mappedBy = "patient")
     private List<Prescription> prescriptions;
-
+    @OneToMany
+    private List<Users> patients;
 
     public Users() {
     }
@@ -237,6 +238,14 @@ public class Users implements Serializable {
 
     public void setPrescriptions(List<Prescription> prescriptions) {
         this.prescriptions = prescriptions;
+    }
+
+    public List<Users> getPatients() {
+        return patients;
+    }
+
+    public void setPatients(List<Users> patients) {
+        this.patients = patients;
     }
 
     @Override

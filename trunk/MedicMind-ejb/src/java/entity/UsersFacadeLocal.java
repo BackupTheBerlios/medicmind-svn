@@ -22,7 +22,7 @@ public interface UsersFacadeLocal {
     public int addGp(String ssn, String username, String password,
         String firstname, String lastname);
 
-    boolean isGp(String username, String password);
+    boolean isUser(String username, String password);
 
     boolean exists(String name);
 
