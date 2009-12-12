@@ -1,6 +1,6 @@
 <%-- 
-    Document   : main
-    Created on : 12-dec-2009, 16:57:22
+    Document   : Medication
+    Created on : 12-dec-2009, 20:49:29
     Author     : Christophe
 --%>
 
@@ -11,13 +11,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Main page</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Main page</h1>
-         <br/><a href="gp/PatientList.jsp">List of patients</a>
-         <br/><a href="gp/MedicationList.jsp">List of medication</a>
-         <p/>
-         <a href="logout.jsp">log out</a>
+        <h1>Hello World!</h1>
+        <a href="gp/Main.jsp">main page</a>
+        <a href="logout.jsp">log out</a>
     </body>
 </html>
