@@ -39,5 +39,9 @@ public class GpBean implements GpRemote {
             return 1;
     
     }
+
+    public boolean isGp(String username, String password) {
+        return (usersFacade.isGp(username, password));
+    }
     
 }

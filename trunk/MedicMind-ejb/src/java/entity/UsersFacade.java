@@ -63,6 +63,21 @@ public class UsersFacade implements UsersFacadeLocal {
         return valid;
     }
 
+    public boolean isGp(String username, String password) {
+        Users user = findByUsername(username);
+        boolean valid = false;
+
+        //If a gp with such an username exists and the password corresponds,
+        //than the password is valid.
+        if (user != null) {
+            if (password.equals(user.getPassword()) &&
+                    user.getRolename().equals("GP")) {
+                valid = true;
+            }
+        }
+        return valid;
+    }
+
     public boolean exists(String username) {
         return findByUsername(username) != null;
     }

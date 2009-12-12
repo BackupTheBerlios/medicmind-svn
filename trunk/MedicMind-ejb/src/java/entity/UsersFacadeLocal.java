@@ -24,6 +24,8 @@ public interface UsersFacadeLocal {
 
     boolean isUser(String username, String password);
 
+    boolean isGp(String username, String password);
+
     boolean exists(String name);
 
     Users findBySsn(String ssn);

@@ -43,5 +43,7 @@ public interface GpRemote {
      *         2: invalid password
      */
     int authenticate(String username, String password);
+
+    boolean isGp(String username, String password);
     
 }
