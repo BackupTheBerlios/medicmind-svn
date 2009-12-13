@@ -5,6 +5,8 @@
 
 package ejb;
 
+import entity.Users;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -45,5 +47,7 @@ public interface GpRemote {
     int authenticate(String username, String password);
 
     boolean isGp(String username, String password);
+
+    List<Users> getPatients(String username, String password);
     
 }

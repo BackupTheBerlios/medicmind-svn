@@ -12,6 +12,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -74,8 +75,10 @@ public class Users implements Serializable {
     private List<Measurement> measurements;
     @OneToMany(mappedBy = "patient")
     private List<Prescription> prescriptions;
-    @OneToMany
+    @ManyToMany
     private List<Users> patients;
+    @ManyToMany(mappedBy = "patients")
+    private List<Users> patientss;
 
     public Users() {
     }
@@ -246,6 +249,14 @@ public class Users implements Serializable {
 
     public void setPatients(List<Users> patients) {
         this.patients = patients;
+    }
+
+    public List<Users> getPatientss() {
+        return patientss;
+    }
+
+    public void setPatientss(List<Users> patientss) {
+        this.patientss = patientss;
     }
 
     @Override

@@ -6,6 +6,7 @@
 package entity;
 
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -25,6 +26,8 @@ public interface UsersFacadeLocal {
     boolean isUser(String username, String password);
 
     boolean isGp(String username, String password);
+
+    public List<Users> getPatients(String username, String password);
 
     boolean exists(String name);
 

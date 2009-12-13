@@ -5,6 +5,7 @@
 
 package entity;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,6 +29,31 @@ public class MedicationFacade implements MedicationFacadeLocal {
             create(medication);
             return 0;
         }
+    }
+
+    public int updateMedication(String id, String name) {
+        Medication existing = findById(id);
+        if (existing == null) {
+            return 1;
+        } else {
+            existing.setName(name);
+            edit(existing);
+            return 0;
+        }
+    }
+
+    public int removeMedication(String name) {
+        Medication existing = findByName(name);
+        if (existing == null) {
+            return 1;
+        } else {
+            remove(existing);
+            return 0;
+        }
+    }
+
+    public String getName(String id){
+        return findById(id).getName();
     }
 
     public boolean exists(String name) {
@@ -87,6 +113,15 @@ public class MedicationFacade implements MedicationFacadeLocal {
         try {
             Medication medication = (Medication) em.createNamedQuery("Medication.findByName").setParameter("name", name).getSingleResult();
             return medication;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public List<Medication> findAll() {
+        try {
+            List<Medication> medications = (List<Medication>) em.createNamedQuery("Medication.findAll").getResultList();
+            return medications;
         } catch (Exception e) {
             return null;
         }

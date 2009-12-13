@@ -5,7 +5,9 @@
 
 package ejb;
 
+import entity.Users;
 import entity.UsersFacadeLocal;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -42,6 +44,10 @@ public class GpBean implements GpRemote {
 
     public boolean isGp(String username, String password) {
         return (usersFacade.isGp(username, password));
+    }
+
+    public List<Users> getPatients(String username, String password) {
+        return usersFacade.getPatients(username, password);
     }
     
 }

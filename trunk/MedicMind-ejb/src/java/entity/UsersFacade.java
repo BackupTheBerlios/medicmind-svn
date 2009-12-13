@@ -6,6 +6,7 @@
 package entity;
 
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -76,6 +77,14 @@ public class UsersFacade implements UsersFacadeLocal {
             }
         }
         return valid;
+    }
+
+    public List<Users> getPatients(String username, String password){
+        Users user = findByUsername(username);
+        if (isGp(username, password)){
+            return user.getPatients();
+        }
+        return null;
     }
 
     public boolean exists(String username) {
