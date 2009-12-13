@@ -18,6 +18,6 @@
          <br/><a href="gp/PatientList.jsp">List of patients</a>
          <br/><a href="gp/MedicationList.jsp">List of medication</a>
          <p/>
-         <a href="/logout.jsp">log out</a>
+         <a href="logout.jsp">log out</a>
     </body>
 </html>

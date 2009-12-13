@@ -19,6 +19,6 @@
          <br/><a href="patient/Task.jsp">next task</a>
          <br/><a href="patient/Measurements.jsp">add measurement</a>
          <p/>
-         <a href="/logout.jsp">log out</a>
+         <a href="logout.jsp">log out</a>
     </body>
 </html>
